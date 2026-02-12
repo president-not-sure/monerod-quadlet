@@ -1,0 +1,8 @@
+[Unit]
+Description=monerod build service
+After=local-fs.target network-online.target
+
+[Build]
+ImageTag=localhost/monerod:latest
+File=%E/containers/systemd/monerod.Containerfile
+SetWorkingDirectory=file

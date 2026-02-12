@@ -1,0 +1,7 @@
+[Unit]
+Description=monerod Tor external network
+
+[Network]
+NetworkName=monerod-tor-external
+NetworkDeleteOnStop=true
+DisableDNS=true
