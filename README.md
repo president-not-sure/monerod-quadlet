@@ -54,13 +54,28 @@ sudo loginctl enable-linger $USER
 
 ## Usage
 
-`systemctl --user start monerod.service` to start the quadlet without having to reboot.
+### Start the quadlet without having to reboot
+
+```bash
+systemctl --user start monerod.service
+```
 
 > [!NOTE]
-> The first run will take more time because it needs to build the first image. `journalctl --user -f -u monerod-build.service` to see build progress.
+> The first run will take more time because it needs to build the first image. To see build progress:
+>
+> ```bash
+> journalctl -f -u tor-build.service
+> journalctl -f -u monerod-build.service
+> ```
 
+### Show logs
 
-`podman logs --follow monerod` or any Podman GUI for monerod logs.
+```bash
+podman logs --follow monerod-tor
+podman logs --follow monerod
+```
+
+Or any other Podman GUI.
 
 ## Uninstall
 
