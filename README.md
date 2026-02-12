@@ -33,7 +33,7 @@ cd monerod-quadlet
 
 ### Quadlet
 
-In order to connect to the node externally, it is required to modify `PublishPort=127.0.0.1:18081:18081` of the `monerod/monerod.container` file to the external host IP address. 
+In order to connect to the node externally, it is required to modify `PublishPort=127.0.0.1:18081:18081` of the `monerod/monerod.container` file to the external host IP address.
 
 > [!WARNING]
 > If the host runs a DNS server on all interfaces, add `DisableDNS=true` under the `[Network]` section of each `.network` unit file to prevent port conflicts.
