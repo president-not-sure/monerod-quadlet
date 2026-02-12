@@ -52,11 +52,13 @@ systemctl --user enable --now \
 sudo loginctl enable-linger $USER
 ```
 
-The first run will take more time because it needs to build the first image. `journalctl --user -f -u monerod-build.service` to see build progress.
-
 ## Usage
 
 `systemctl --user start monerod.service` to start the quadlet without having to reboot.
+
+> [!NOTE]
+> The first run will take more time because it needs to build the first image. `journalctl --user -f -u monerod-build.service` to see build progress.
+
 
 `podman logs --follow monerod` or any Podman GUI for monerod logs.
 
