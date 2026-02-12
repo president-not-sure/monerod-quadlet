@@ -1,6 +1,6 @@
 FROM quay.io/fedora/fedora:latest as build
 
-RUN dnf --use-host-config --installroot=/staging -y install glibc && \
+RUN dnf --use-host-config --installroot=/staging -y install glibc curl && \
     dnf --use-host-config --installroot=/staging -y clean all
 
 WORKDIR /workdir

@@ -7,15 +7,27 @@ BindsTo=monerod-tor.container
 ContainerName=monerod
 Image=monerod.build
 AutoUpdate=local
-PublishPort=127.0.0.1:18081:18081
-AddHost=monerod-tor:10.1.1.10
-AddHost=monerod:10.1.1.20
-Network=monerod-tor-internal.network:ip=10.1.1.20
+# Container CMD
+Exec=--prune-blockchain --rpc-bind-ip 0.0.0.0 --confirm-external-bind --restricted-rpc --proxy 10.1.1.10:9050 --data-dir /bitmonero --non-interactive --no-igd
+
+# Resources
 DropCapability=all
 NoNewPrivileges=true
 PodmanArgs=--cpu-shares=1 --memory=4g --memory-swap=4g
 Volume=%h/.local/share/monerod/bitmonero:/bitmonero:z
-Exec=--prune-blockchain --rpc-bind-ip 0.0.0.0 --confirm-external-bind --restricted-rpc --proxy 10.1.1.10:9050 --data-dir /bitmonero --non-interactive --no-igd
+
+# Network
+PublishPort=127.0.0.1:18081:18081
+AddHost=monerod-tor:10.1.1.10
+AddHost=monerod:10.1.1.20
+Network=monerod-tor-internal.network:ip=10.1.1.20
+
+# Healthcheck
+HealthCmd=curl -sf http://monerod:18081/get_height -o /dev/null
+HealthTimeout=5s
+HealthInterval=30s
+HealthRetries=5
+HealthOnFailure=restart
 
 [Service]
 Restart=on-failure
