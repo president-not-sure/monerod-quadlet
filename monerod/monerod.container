@@ -13,7 +13,7 @@ AddHost=monerod:10.1.1.20
 Network=monerod-tor-internal.network:ip=10.1.1.20
 DropCapability=all
 NoNewPrivileges=true
-PodmanArgs=--cpu-shares=1 --memory=2g --memory-swap=2g
+PodmanArgs=--cpu-shares=1 --memory=4g --memory-swap=4g
 Volume=%h/.local/share/monerod/bitmonero:/bitmonero:z
 Exec=--prune-blockchain --rpc-bind-ip 0.0.0.0 --confirm-external-bind --restricted-rpc --proxy 10.1.1.10:9050 --data-dir /bitmonero --non-interactive --no-igd
 
