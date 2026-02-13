@@ -12,8 +12,8 @@ A Tor secured monerod client managed by Podman Quadlet.
 - Automatically restarts when a new image is built
 - Automatically starts/stops on reboot
 - No updates required unless upstream introduces breaking changes
-- Minimal image size:
-  - monerod: ~275MB
+- Image size:
+  - monerod: ~370MB
   - Tor: ~160MB
 
 ## Requirements
